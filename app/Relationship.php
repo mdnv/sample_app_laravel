@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Relationship extends Model
 {
     protected $fillable = [
-        'commenter', 'body', 'user_id'
+        'follower_id', 'followed_id'
     ];
     public function user()
     {
