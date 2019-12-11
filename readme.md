@@ -70,3 +70,31 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Laravel Tutorial
+https://github.com/manh17/sample_app_laravel
+https://laravel.com/
+sudo apt install composer
+sudo apt install php libapache2-mod-php php-mysql
+sudo add-apt-repository ppa:ondrej/php
+sudo apt install php7.2 libapache2-mod-php7.2 php7.2-mbstring php7.2-xmlrpc php7.2-soap php7.2-gd php7.2-xml php7.2-cli php7.2-zip
+git clone https://github.com/manhngg/crud2.git
+composer create-project --prefer-dist laravel/laravel sample_app_laravel
+cd sample_app_laravel/
+composer install --ignore-platform-reqs
+composer install
+mysql -u root -p
+drop database sample_app_laravel;
+create database sample_app_laravel;
+php artisan migrate
+php artisan key:generate
+php artisan serve --port=8001
+php artisan route:list
+php artisan make:auth --> remove from laravel 6.0
+https://laravel.com/docs/6.0/authentication#included-routing
+composer require laravel/ui --dev
+php artisan ui vue --auth
+npm install && npm run dev
+https://www.5balloons.info/laravel-authentication-tutorial…/
+debug in view:
+{{ dd($users->toArray()) }}
