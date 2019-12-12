@@ -37,60 +37,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function active_relationships()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function followers()
     {
-        return $this->hasMany('App\Relationship', 'follower_id');
+        return $this->belongsToMany(User::class, 'App\Relationship', 'follower_id', 'followed_id')->withTimestamps();
     }
 
-    public function passive_relationships()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function followings()
     {
-        return $this->hasMany('App\Relationship', 'followed_id');
-    }
-
-    protected static function boot()
-    {
-       parent::boot();
-
-       static::deleting(function($user) {
-        $relationships = Relationship::where('follower_id', $user->id);
-        foreach ($relationships as $relationship) {
-            $relationship->delete();
-        }
-        $relationships = Relationship::where('followed_id', $user->id);
-        foreach ($relationships as $relationship) {
-            $relationship->delete();
-        }
-       });
-    }
-
-    public function following() {
-        return $this->hasManyThrough('following', 'active_relationships');
-    }
-
-    public function followers() {
-        return $this->hasManyThrough('followers', 'passive_relationships');
+        return $this->belongsToMany(User::class, 'App\Relationship', 'followed_id', 'follower_id')->withTimestamps();
     }
 
     public function comments()
     {
         return $this->hasMany('App\Comment');
-    }
-
-    #Follows a user.
-    public function follow($other_user)
-    {
-        return $this->following()->attach($other_user);
-    }
-
-    # Unfollows a user.
-    public function unfollow($other_user)
-    {
-        return $this->following()->detach($b);
-    }
-
-    # Returns true if the current user is following the other user.
-    public function isFollowing($other_user)
-    {
-      return $this->following()->in_array($other_user);
     }
 }

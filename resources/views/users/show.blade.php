@@ -11,6 +11,13 @@
   {{ $user->email }}
 </p>
 
+@include('shared._stats')
+
+@if (Auth::user())
+      @include('users._follow_form')
+@endif
+
+
 <h2>Comments</h2>
 
 @include('comments._comment')

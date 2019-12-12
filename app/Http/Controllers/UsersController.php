@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all()->sortBy("id");
+        // $users = DB::table('users')->simplePaginate(1);
+        $users = User::paginate(1);
+        // $users = User::all()->sortBy("id");
         // $users = User::with('comments')->all()->sortBy("id");
         return view('users.index', compact('users'));
     }

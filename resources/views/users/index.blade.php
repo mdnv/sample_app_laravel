@@ -4,43 +4,7 @@
 <h1>All users</h1>
 
 
-  <nav>
-    <ul class="pagination">
-      <li class="page-item">
-  <a class="page-link" href="/users">&laquo; First</a>
-</li>
-
-      <li class="page-item">
-  <a rel="prev" class="page-link" href="/users">&lsaquo; Prev</a>
-</li>
-
-            <li class="page-item">
-    <a rel="prev" class="page-link" href="/users">1</a>
-  </li>
-
-            <li class="page-item active">
-    <a data-remote="false" class="page-link">2</a>
-  </li>
-
-            <li class="page-item">
-    <a rel="next" class="page-link" href="/users?page=3">3</a>
-  </li>
-
-            <li class="page-item">
-    <a class="page-link" href="/users?page=4">4</a>
-  </li>
-
-      <li class="page-item">
-  <a rel="next" class="page-link" href="/users?page=3">Next &rsaquo;</a>
-</li>
-
-      <li class="page-item">
-  <a class="page-link" href="/users?page=4">Last &raquo;</a>
-</li>
-
-    </ul>
-  </nav>
-
+{{ $users->onEachSide(5)->links() }}
 
 <ul class="users">
   @foreach ($users as $user)
@@ -98,5 +62,4 @@
 
     </ul>
   </nav>
-
 @endsection
