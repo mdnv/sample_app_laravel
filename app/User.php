@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Comment;
 
 class User extends Authenticatable
 {
@@ -56,5 +57,11 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany('App\Comment');
+    }
+
+    public function feed()
+    {
+        // following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+        // return $this -> Comment::where("user_id IN ({following_ids}) OR user_id = :user_id", user_id: id)
     }
 }

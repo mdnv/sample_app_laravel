@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -32,7 +33,10 @@ class UsersController extends Controller
 
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        $comments = Comment::paginate(1);
+        // $comments = $user->comments->paginate(1);
+        // return view('users.show',compact('user'),compact('comments'));
+        return view('users.show', ['user' => $user], ['comments' => $comments]);
     }
 
     /**

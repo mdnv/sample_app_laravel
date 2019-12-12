@@ -15,8 +15,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="account-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
             <div class="dropdown-menu" aria-labelledby="account-dropdown">
-              <a class="dropdown-item" href="{{ route('user_path',Auth::user()) }}">{{ __('Show') }}</a>
-              <a class="dropdown-item" href="{{ route('edit_user_path',Auth::user()) }}">{{ __('Update') }}</a>
+              <a class="dropdown-item" href="{{ route('user_path',Auth::user()) }}">{{ __('Profile') }}</a>
+              <a class="dropdown-item" href="{{ route('edit_user_path',Auth::user()) }}">{{ __('Settings') }}</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" rel="nofollow" data-method="delete" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

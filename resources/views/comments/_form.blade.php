@@ -2,7 +2,7 @@
   @csrf
 
   <p>
-    <label for="comment_commenter">Commenter</label><br>
+    <label for="comment_commenter">User</label><br>
     <input type="text" name="commenter" id="comment_commenter" />
   </p>
   <p>
@@ -10,6 +10,6 @@
     <textarea name="body" id="comment_body"></textarea>
   </p>
   <p>
-    <input type="submit" name="commit" value="Create Comment" data-disable-with="Create Comment" />
+    <input type="submit" name="commit" value="Create Micropost" data-disable-with="Create Micropost" />
   </p>
 </form>

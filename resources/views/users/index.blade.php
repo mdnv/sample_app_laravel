@@ -19,7 +19,6 @@
       <form id="{{ url('logout-form' . $user->id) }}" action="{{ route('user_path', $user->id)}}" method="post" style="display: none;">
               @csrf
               @method('DELETE')
-              <input type="submit" value="Destroy" />
       </form>
 </li>
 @endforeach
