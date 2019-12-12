@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import 'custom.scss';
+@import 'bootstrap.css';
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10643,4 +10645,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

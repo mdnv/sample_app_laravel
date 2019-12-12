@@ -21,12 +21,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        @include('layouts.header')
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+    @include('layouts.header')
+    <div class="container">
+      @yield('content')
+      @include('layouts.footer')
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
