@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+use App\Http\Resources\UsersCollection;
+use App\Http\Resources\User as UserResource;
+use App\Http\Resources\UsersUserCollection;
+use App\User;
+
+Route::get('/users', function () {
+    return new UsersCollection(User::paginate());
+});
+
+Route::get('/user', function () {
+    return (new UserResource(User::find(4)))
+                ->response()
+                ->header('X-Value', 'True');
+});
