@@ -26,7 +26,7 @@ Route::get('/users', function () {
     return new UsersCollection(User::all());
 });
 
-Route::get('/user', function () {
+Route::get('/users/{id}', function () {
     return (new UserResource(User::find(4)))
                 ->response()
                 ->header('X-Value', 'True');

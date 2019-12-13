@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CommentController extends Controller
 {
@@ -30,7 +31,33 @@ class CommentController extends Controller
             'body'=> $request->get('body'),
             'user_id'=> $id
         ]);
+
+        // validate the uploaded file
+        $file = $request->file('image');
+        // $validation = $request->validate([
+        //     'image' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+        //     // for multiple file uploads
+        //     // 'photo.*' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+        // ]);
+
+        // $file      = $validation['image']; // get the validated file
+        // $extension = $file->getClientOriginalExtension();
+        // $filename  = 'comment-image-' . time() . '.' . $extension;
+        Storage::put('comments/1212', $file);
+
+        // $file = $request->file('image');
+        // // $extension = $file->getClientOriginalExtension();
+        // // $filename  = 'comment-image-' . $comment->id . time() . '.' . $extension;
+        // $filename  = 'comment-image-' . $comment->id . time();
+        // Storage::put($filename, $file);
+
         $comment->save();
+
+
+
+
+
+
         return redirect()->back();
         // return redirect()->route('users_path,$user->id');
     }

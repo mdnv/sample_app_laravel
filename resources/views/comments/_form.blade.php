@@ -12,4 +12,7 @@
   <p>
     <input type="submit" name="commit" value="Create Micropost" data-disable-with="Create Micropost" />
   </p>
+  <p>
+    <input accept="image/jpeg,image/gif,image/png" type="file" name="image" id="comment_image" />
+  </p>
 </form>
