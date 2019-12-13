@@ -23,7 +23,7 @@ use App\Http\Resources\UsersUserCollection;
 use App\User;
 
 Route::get('/users', function () {
-    return new UsersCollection(User::paginate());
+    return new UsersCollection(User::all());
 });
 
 Route::get('/user', function () {
