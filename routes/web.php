@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
+Route::get('/help', 'StaticPagesController@help');
+Route::get('/about', 'StaticPagesController@about');
+Route::get('/contact', 'StaticPagesController@contact');
 
 Route::get('/users', 'UsersController@index')->name('users_path');
 // Route::post('/users', 'UsersController@create')->name('users_path'); 5
