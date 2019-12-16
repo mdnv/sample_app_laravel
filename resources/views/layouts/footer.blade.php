@@ -1,7 +1,7 @@
 <footer class="footer">
   <small>
-    The <a href="https://railstutorial.jp/">Laravel Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+    The <a href="http://rubyonrails.org/">Laravel Tutorial</a>
+    by <a href="https://github.com/taylorotwell/">Taylor Otwell</a>
   </small>
   <nav>
     <ul>
