@@ -98,3 +98,28 @@ npm install && npm run dev
 https://www.5balloons.info/laravel-authentication-tutorial…/
 debug in view:
 {{ dd($users->toArray()) }}
+
+[ruby -v
+php -v
+[rails -v
+php artisan --version
+[rails db:create
+mysql -u root -p
+drop database sample_app_laravel;
+create database sample_app_laravel;
+use sample_app_laravel;
+SHOW COLUMNS FROM users;
+select * from users;
+[rails db:reset
+[rails db:migrate
+php artisan migrate
+php artisan migrate --force
+[rails db:rollback STEP=5
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5
+[rails db:migrate:reset
+php artisan migrate:reset
+[rails db:seed
+php artisan db:seed
+
+
