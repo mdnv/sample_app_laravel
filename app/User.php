@@ -53,6 +53,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'App\Relationship', 'followed_id', 'follower_id')->withTimestamps();
     }
+    // https://stackoverflow.com/questions/44913409/laravel-follower-following-relationships/44913501
 
     public function comments()
     {

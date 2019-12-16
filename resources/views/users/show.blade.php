@@ -25,8 +25,8 @@
 
   {{ $comments->onEachSide(5)->links() }}
 
-  <h2>Add a micropost:</h2>
-@include('comments._form')
+  {{-- <h2>Add a micropost:</h2>
+@include('comments._form') --}}
 @endsection
 
   </div>

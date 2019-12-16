@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 use App\User;
 use App\Comment;
 
@@ -26,13 +27,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-      if(Auth::user())
+      if(Auth::check())
       {
-            // $micropost = Auth::user()->comments->new();
-            // $feed_items = Auth::user()->feed->with(user).paginate(1);
-            $feed_items = Comment::paginate(1);
-
+            # https://laravel.com/docs/6.x/queries#where-exists-clauses
+            # https://laravel.com/docs/6.x/database#running-queries
+            $feed_items = Comment::whereExists(function ($query) {
+                           $query->select(DB::raw(1))
+                                 ->from('relationships')
+                                 ->whereRaw("user_id IN (SELECT followed_id FROM relationships WHERE  follower_id = ?) OR user_id = ?", [Auth::user()->id, Auth::user()->id]);
+                       })
+                       ->get();
+            // foreach ($feed_items2 as $i=>$b) {
+            //     $feed_items[] = collect([$b]);
+            // }
+            // $feed_items = new \Illuminate\Database\Eloquent\Collection($feed_items);
+            // $feed_items = Auth::user()->comments;
+            // $feed_items = Comment::paginate(30);
+            return view('home', ['feed_items' => $feed_items]);
       }
-        return view('home');
+      else
+        {
+    return view('home');}
     }
 }

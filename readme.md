@@ -119,7 +119,54 @@ php artisan migrate:rollback
 php artisan migrate:rollback --step=5
 [rails db:migrate:reset
 php artisan migrate:reset
+php artisan migrate
 [rails db:seed
 php artisan db:seed
+[http://localhost:3000/rails/info/routes
+php artisan route:list
 
 
+sudo -u postgres psql postgres
+postgres=# \l
+postgres=# \c sample_app_development;
+sample_app_development=# \dt
+sample_app_development=# select * from active_storage_attachments;
+
+active_storage_attachments;
+id
+name avatar
+https://edgeguides.rubyonrails.org/association_basics.html#polymorphic-associations
+record_type Variant
+record_id id Variant
+https://edgeguides.rubyonrails.org/association_basics.html#polymorphic-associations
+blob_id has_many blob
+created_at
+
+active_storage_blobs
+id
+key q29gsn7wnpxscjuhldr8773qtqyr
+filename
+content_type image/png
+metadata {"identified":true,"analyzed":true}
+byte_size 74469
+checksum FvudivDuIrOT0yZxns5aQg==
+created_at 2019-12-16 12:19:08.2845
+
+
+[rails console]
+https://laravel.com/docs/master/artisan
+https://laravel-news.com/laravel-tinker
+export PATH="~/.composer/vendor/bin:$PATH"
+
+
+
+echo 'export PATH="~/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+
+
+php artisan tinker
+
+App\User::find(1)
+App\User::where('id',1)->get()
+App\User::where('id',1)->first()
+App\Relationship::all()

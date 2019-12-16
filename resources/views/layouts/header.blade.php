@@ -13,7 +13,7 @@
         @else
           <li class="nav-item"><a class="nav-link" href="{{ route('users_path') }}">{{ __('Users') }}</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="account-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+            <a class="nav-link dropdown-toggle" href="#" id="account-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><!--Account-->{{ Auth::user()->name }}</a>
             <div class="dropdown-menu" aria-labelledby="account-dropdown">
               <a class="dropdown-item" href="{{ route('user_path',Auth::user()) }}">{{ __('Profile') }}</a>
               <a class="dropdown-item" href="{{ route('edit_user_path',Auth::user()) }}">{{ __('Settings') }}</a>

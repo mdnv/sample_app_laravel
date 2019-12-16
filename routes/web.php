@@ -42,7 +42,9 @@ Route::put('/users/{user_id}/comments/{id}', 'CommentController@update')->name('
 Route::delete('/users/{user_id}/comments/{id}', 'CommentController@destroy')->name('user_comment_path');
 
 Route::post('/relationships/{id}', 'RelationshipsController@create')->name('relationships_path');
-Route::delete('/relationships/{id}', 'RelationshipsController@destroy')->name('relationships_path');;
+Route::delete('/relationships/{id}', 'RelationshipsController@destroy')->name('relationships_path');
 
 Route::get('/users/{user_id}/following', 'UsersController@following')->name('following_user_path');
 Route::get('/users/{user_id}/followers', 'UsersController@followers')->name('followers_user_path');
+
+// Route::resource('users', 'UserController');

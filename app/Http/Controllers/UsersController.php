@@ -17,7 +17,7 @@ class UsersController extends Controller
     public function index()
     {
         // $users = DB::table('users')->simplePaginate(1);
-        $users = User::paginate(1);
+        $users = User::paginate(30);
         // $users = User::all()->sortBy("id");
         // $users = User::with('comments')->all()->sortBy("id");
         return view('users.index', compact('users'));
