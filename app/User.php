@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Comment;
+use DB;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -41,7 +43,7 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function followers()
+    public function followings()
     {
         return $this->belongsToMany(User::class, 'App\Relationship', 'follower_id', 'followed_id')->withTimestamps();
     }
@@ -49,9 +51,17 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function followings()
+    public function followers()
     {
         return $this->belongsToMany(User::class, 'App\Relationship', 'followed_id', 'follower_id')->withTimestamps();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function following($user)
+    {
+        return DB::table('relationships')->where('follower_id', '=' , Auth::user()->id)->where('followed_id', '=' , $user->id)->count();
     }
     // https://stackoverflow.com/questions/44913409/laravel-follower-following-relationships/44913501
 

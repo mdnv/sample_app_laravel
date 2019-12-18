@@ -37,11 +37,15 @@ class HomeController extends Controller
                                  ->whereRaw("user_id IN (SELECT followed_id FROM relationships WHERE  follower_id = ?) OR user_id = ?", [Auth::user()->id, Auth::user()->id]);
                        })
                        ->get();
+    //         $following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    // Micropost.where("user_id IN ($following_ids) OR user_id = :user_id", user_id: id)
+    // $results = DB::select('select * from users where id = :id', ['id' => 1]);
+    //         dd($feed_items);
             // foreach ($feed_items2 as $i=>$b) {
             //     $feed_items[] = collect([$b]);
             // }
             // $feed_items = new \Illuminate\Database\Eloquent\Collection($feed_items);
-            // $feed_items = Auth::user()->comments;
+            if (empty($feed_items->count())) { $feed_items = Auth::user()->comments; }
             // $feed_items = Comment::paginate(30);
             return view('home', ['feed_items' => $feed_items]);
       }

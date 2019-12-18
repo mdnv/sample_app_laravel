@@ -86,5 +86,37 @@ class UsersController extends Controller
 
         return redirect()->route('users_path');
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function following($id)
+    {
+        $title = "Following"
+        $user = User::find($id);
+        $users = $user->followings;
+
+        return view('users.show_follow', ['title' => $title], ['user' => $user], ['users' => $users]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function followers($id)
+    {
+        $title = "Followers"
+        $user = User::find($id);
+        $users = $user->followers;
+
+        return view('users.show_follow', ['title' => $title], ['user' => $user], ['users' => $users]);
+    }
 }
 #php artisan make:controller UserController --resource --model=User

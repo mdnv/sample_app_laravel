@@ -170,3 +170,10 @@ App\User::find(1)
 App\User::where('id',1)->get()
 App\User::where('id',1)->first()
 App\Relationship::all()
+
+
+INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
+
+INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
+
+INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);

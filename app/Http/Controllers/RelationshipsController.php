@@ -27,11 +27,17 @@ class RelationshipsController extends Controller
         //     'follower_id' => $a->id,
         //     'followed_id'=> $b->id,
         // ]);
+        // DB::table('relationships')->insert(
+        //     ['follower_id' => $a->id, 'followed_id' => $b->id]
+        // );
+        // DB::insert('INSERT INTO relationships (follower_id, followed_id) VALUES (?, ?)', [$a->id, $b->id]);
+        // INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);
         // $relationship->save();
-        Relationship::create([
+        $relationship = Relationship::create([
             'follower_id' => $a->id,
             'followed_id'=> $b->id,
         ]);
+        // if(empty($relationship)) { dd($relationship); }
         // $relationship->save();
 
 

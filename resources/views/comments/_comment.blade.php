@@ -11,6 +11,7 @@
   </span>
   <span class="timestamp">
     Posted about 5 hours ago.
+    @if(Auth::user()->id == $comment->user->id)
       <a data-confirm="You sure?" rel="nofollow" data-method="delete" href=""
       onclick="event.preventDefault();
                     document.getElementById('{{ url('logout-form' . $comment->id) }}').submit();">
@@ -20,6 +21,7 @@
               @csrf
               @method('DELETE')
       </form>
+    @endif
   </span>
 </li>
 
