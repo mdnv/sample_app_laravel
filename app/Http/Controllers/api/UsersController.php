@@ -105,7 +105,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $users = $user->followers;
 
-        return view('users.show_follow', ['title' => $title], ['user' => $user], ['users' => $users]);
+        return view('users.show_follow', compact('title','user','users'));
     }
 }
 #php artisan make:controller UserController --resource --model=User

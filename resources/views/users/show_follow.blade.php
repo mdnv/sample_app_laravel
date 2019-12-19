@@ -15,7 +15,7 @@
         <div class="user_avatars">
           @if(!empty($users))
           @foreach ($users as $user)
-            <a href="/users/4"><img alt="Shan Doyle" class="gravatar" src="https://secure.gravatar.com/avatar/2065436fdfe2d27dc7f06b6787a4a1af?s=30" /></a>
+            <a href="{{ route('user_path',$user->id)}}"><img alt="{{ $user->name }}" class="gravatar" src="https://secure.gravatar.com/avatar/2065436fdfe2d27dc7f06b6787a4a1af?s=30" /></a>
           @endforeach
           @endif
         </div>
