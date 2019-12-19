@@ -93,7 +93,10 @@ class UsersController extends Controller
         $user = User::find($id);
         $users = $user->followings;
 
-        return view('users.show_follow', ['title' => $title], ['user' => $user], ['users' => $users]);
+        return view('users.show_follow', compact('title','user','users'));
+        // return view('users.show_follow')->with(['title'=>$title,'user'=>$user,'users'=>$users]);
+        // return view('users.show_follow', ['title' => $title], ['user' => $user], ['users' => $users]);
+        // return view('users.show_follow', ['title' => $title, 'user' => $user , 'users' => $users]);
     }
 
     public function followers($id)
