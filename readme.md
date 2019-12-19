@@ -156,6 +156,8 @@ created_at 2019-12-16 12:19:08.2845
 [rails console]
 https://laravel.com/docs/master/artisan
 https://laravel-news.com/laravel-tinker
+https://mysterious-atoll-47182.herokuapp.com
+https://laravel.com/docs/6.x/collections#method-sortby
 export PATH="~/.composer/vendor/bin:$PATH"
 
 
@@ -170,6 +172,7 @@ App\User::find(1)
 App\User::where('id',1)->get()
 App\User::where('id',1)->first()
 App\Relationship::all()
+DB::table('comments')->where('user_id', '=', 1)->delete();
 
 
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
@@ -179,3 +182,10 @@ INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);
 
 $tables = \DB::select('show tables');
+
+php artisan migrate:reset && php artisan migrate && php artisan db:seed
+
+composer require fzaninotto/faker
+use Faker\Factory as Faker;
+$faker = Faker::create();
+$name  = $faker->name;

@@ -36,7 +36,7 @@ class HomeController extends Controller
                                  ->from('relationships')
                                  ->whereRaw("user_id IN (SELECT followed_id FROM relationships WHERE  follower_id = ?) OR user_id = ?", [Auth::user()->id, Auth::user()->id]);
                        })
-                       ->get();
+                       ->get()->sortByDesc('created_at');
     //         $following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
     // Micropost.where("user_id IN ($following_ids) OR user_id = :user_id", user_id: id)
     // $results = DB::select('select * from users where id = :id', ['id' => 1]);
@@ -45,7 +45,7 @@ class HomeController extends Controller
             //     $feed_items[] = collect([$b]);
             // }
             // $feed_items = new \Illuminate\Database\Eloquent\Collection($feed_items);
-            if (empty($feed_items->count())) { $feed_items = Auth::user()->comments; }
+            if (empty($feed_items->count())) { $feed_items = Auth::user()->comments->sortByDesc('created_at'); }
             // $feed_items = Comment::paginate(30);
             return view('home', ['feed_items' => $feed_items]);
       }

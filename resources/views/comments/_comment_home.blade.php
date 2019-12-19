@@ -1,6 +1,6 @@
 @foreach ($feed_items as $comment)
 <li id="micropost-303">
-  <a href="{{ route('user_path',Auth::user()->id)}}">{!! gravatar_for(Auth::user()) !!}</a>
+  <a href="{{ route('user_path',$comment->user->id)}}">{!! gravatar_for($comment->user) !!}</a>
   <span class="user"><a href="{{ route('user_path',$comment->user)}}">{{ $comment->user->name }}</a></span>
   <span class="content">
     {{ $comment->body }}
