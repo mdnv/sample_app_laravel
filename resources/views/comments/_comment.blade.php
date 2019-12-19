@@ -3,7 +3,7 @@
 @endif
 @foreach ($user->comments as $comment)
 <li id="micropost-{{ $comment->id }}">
-  <a href="{{ route('user_path',$user->id)}}"><img alt="{{ $comment->commenter }}" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <a href="{{ route('user_path',$user->id)}}">{!! gravatar_for($user) !!}</a>
   <span class="user"><a href="{{ route('user_path',$user->id)}}">{{ $comment->commenter }}</a></span>
   <span class="content">
     {{ $comment->body }}

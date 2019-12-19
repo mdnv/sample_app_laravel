@@ -1,6 +1,6 @@
 @foreach ($users as $user)
 <li>
-<img alt="{{ $user->name }}" class="gravatar" src="https://secure.gravatar.com/avatar/949272e115f08275bdaab4e619b918fc?s=50" />
+{!! gravatar_for($user) !!}
 <a href="{{ route('user_path',$user->id)}}">{{ $user->name }}</a>
   | <a data-confirm="You sure?" rel="nofollow" data-method="delete" href=""
     onclick="event.preventDefault();

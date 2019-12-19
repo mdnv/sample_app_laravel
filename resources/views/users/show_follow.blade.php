@@ -4,7 +4,7 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=80" />
+      {!! gravatar_for($user) !!}
       <h1>{{ $user->name }}</h1>
       <span><a href="{{ route('user_path',$user->id)}}">view my profile</a></span>
       <span><b>Microposts:</b> {{ $user->comments->count() }}</span>
@@ -15,7 +15,7 @@
         <div class="user_avatars">
           @if(!empty($users))
           @foreach ($users as $user)
-            <a href="{{ route('user_path',$user->id)}}"><img alt="{{ $user->name }}" class="gravatar" src="https://secure.gravatar.com/avatar/2065436fdfe2d27dc7f06b6787a4a1af?s=30" /></a>
+            <a href="{{ route('user_path',$user->id)}}">{!! gravatar_for($user) !!}</a>
           @endforeach
           @endif
         </div>

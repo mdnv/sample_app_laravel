@@ -4,7 +4,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <img alt="{{ $user->name }}" class="gravatar" src="https://secure.gravatar.com/avatar/4ad56d257f750ded65c233f2c591f9c0?s=80" />
+        {!! gravatar_for($user) !!}
         {{ $user->name }}
       </h1>
     </section>
