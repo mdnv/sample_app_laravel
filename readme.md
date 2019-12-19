@@ -177,3 +177,5 @@ INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
 
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);
+
+$tables = \DB::select('show tables');
