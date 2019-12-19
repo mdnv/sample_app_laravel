@@ -8,13 +8,24 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>
+    {{-- <title>{{ full_title(@yield('title')) }}</title> --}}
+    {{-- https://laravel.io/forum/02-06-2014-check-if-yieldsomething-is-set --}}
+    {{-- https://devdojo.com/tutorials/custom-global-helpers-in-laravel --}}
+    <title>{{ full_title($__env->yieldContent('title')) }}</title>
+    {{-- <title>
+        @if(View::hasSection('title'))
+            {{ full_title($__env->yieldContent('title')) }}
+        @else
+            {{ full_title() }}
+        @endif
+    </title> --}}
+    {{-- <title>
         @if(View::hasSection('title'))
             @yield('title') | Laravel Tutorial Sample App
         @else
             Laravel Tutorial Sample App
         @endif
-    </title>
+    </title> --}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
