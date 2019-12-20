@@ -29,7 +29,7 @@ class AuthSignupRequest extends FormRequest
             'last_name' => 'nullable|string|max:100',
             'email' => 'required|string|email|unique:users',
             //'password' => 'required|string|confirmed|min:8|max:20|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[~`!@#$%^&*()_\-+={}\[\];:\'"<>,.?\/\\|])[A-Za-z\d~`!@#$%^&*()_\-+={}\[\];:\'" <>,.?\/\\ |]{8,}$/'
-            'password' => 'required|string|confirmed|min:8|max:20|regex:/^(?=.*[A-Za-z])(?=.*\d){8,}$/'
+            'password' => 'required|string|confirmed|min:8|max:20'
         ];
     }
 }
