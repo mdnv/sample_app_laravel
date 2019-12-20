@@ -182,6 +182,7 @@ INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);
 
 $tables = \DB::select('show tables');
+$columns = Schema::getColumnListing('users');
 
 php artisan migrate:reset && php artisan migrate && php artisan db:seed
 
@@ -189,3 +190,14 @@ composer require fzaninotto/faker
 use Faker\Factory as Faker;
 $faker = Faker::create();
 $name  = $faker->name;
+
+App\Relationship::all()->pluck('follower_id') [3..51] 49
+App\Relationship::all()->pluck('follower_id')->count();
+
+App\Relationship::all()->pluck('followed_id'); [4..41] 38
+App\Relationship::all()->pluck('followed_id')->count();
+
+
+https://laravel.com/docs/6.x/testing
+
+https://mysterious-atoll-47182.herokuapp.com/

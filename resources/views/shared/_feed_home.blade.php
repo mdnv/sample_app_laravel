@@ -7,5 +7,5 @@
 
 
   </ol>
- {{-- {{ $feed_items->onEachSide(5)->links() }} --}}
+ {{-- {{ $feed_items->paginate(15)->onEachSide(5)->links() }} --}}
 @endif

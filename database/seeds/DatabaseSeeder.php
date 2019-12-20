@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 use App\User;
 use App\Comment;
+use App\Relationship;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,7 +39,8 @@ class DatabaseSeeder extends Seeder
         }
 
         # Generate microposts for a subset of users.
-        $users = User::all()->sortBy('created_at')->take(6);
+        $users = User::all()->sortBy('id')->take(6);
+        // $users = User::all()->sortBy('created_at')->take(6);
 
         for ($n = 1; $n <= 50; $n++) {
           $content = $faker->sentence($nbWords = 5);
@@ -50,6 +52,34 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
+
+        DB::table('comments')->where('user_id', '=', 1)->delete();
+
+        # Create following relationships.
+        // $users = User::all()->sortBy('id');
+        // $user = User::first();
+        // $following_array = [];
+        // for ($n = 3; $n <= 51; $n++) {
+        //     $result = array_push($following_array, $n);
+        // }
+        // $followers_array = [];
+        // $following = DB::table('users')->whereIn('id', $following_array)->get();
+        // for ($n = 4; $n <= 41; $n++) {
+        //     $result = array_push($followers_array, $n);
+        // }
+        // $followers = DB::table('users')->whereIn('id', $followers_array)->get();
+        // foreach ($following as &$followed) {
+        //         Relationship::create([
+        //             'follower_id' => $user->id,
+        //             'followed_id'=> $followed->id,
+        //         ]);
+        //     }
+        // foreach ($followers as &$follower) {
+        //         Relationship::create([
+        //             'follower_id' => $follower->id,
+        //             'followed_id'=> $user->id,
+        //         ]);
+        //     }
 
         // factory(App\User::class, 6)->each(function ($user) {
         //     $content = $faker->sentence($nbWords = 5);

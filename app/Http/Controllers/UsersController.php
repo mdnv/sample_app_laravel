@@ -33,7 +33,7 @@ class UsersController extends Controller
 
     {
         $user = User::find($id);
-        $comments = Comment::paginate(1);
+        $comments = User::find($id)->comments->sortByDesc('created_at');
         // $comments = $user->comments->paginate(1);
         // return view('users.show',compact('user'),compact('comments'));
         return view('users.show', ['user' => $user], ['comments' => $comments]);

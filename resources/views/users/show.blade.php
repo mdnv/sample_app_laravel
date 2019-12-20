@@ -23,7 +23,7 @@
         @include('comments._comment')
       </ol>
 
-  {{ $comments->onEachSide(5)->links() }}
+  {{-- {{ $comments->onEachSide(5)->links() }} --}}
 
   {{-- <h2>Add a micropost:</h2>
 @include('comments._form') --}}
