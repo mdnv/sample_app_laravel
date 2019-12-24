@@ -51,4 +51,22 @@ Route::get('/users/{user_id}/followers', 'UsersController@followers')->name('fol
 
 Route::prefix('admin')->group(function() {
 	Route::get('/','Admin\StaticPagesController@home')->name('admin_root_path');
+
+	Route::get('/users', 'Admin\UsersController@index')->name('admin_users_path');
+	Route::post('/users', 'Admin\UsersController@create')->name('admin_users_path');
+	Route::get('/users/new', 'Admin\UsersController@new')->name('admin_new_user_path');
+	Route::get('/users/{id}/edit', 'Admin\UsersController@edit')->name('admin_edit_user_path');
+	Route::get('/users/{id}', 'Admin\UsersController@show')->name('admin_user_path');
+	Route::patch('/users/{id}', 'Admin\UsersController@update')->name('admin_user_path');
+	Route::put('/users/{id}', 'Admin\UsersController@update')->name('admin_user_path');
+	Route::delete('/users/{id}', 'Admin\UsersController@destroy')->name('admin_user_path');
+
+	Route::get('/users/{user_id}/comments', 'Admin\CommentController@index')->name('admin_user_comments_path');
+	Route::post('/users/{user_id}/comments', 'Admin\CommentController@create')->name('admin_user_comments_path');
+	Route::get('/users/{user_id}/comments/new', 'Admin\CommentController@new')->name('admin_new_user_comment_path');
+	Route::get('/users/{user_id}/comments/{id}/edit', 'Admin\CommentController@edit')->name('admin_edit_user_comment_path');
+	Route::get('/users/{user_id}/comments/{id}', 'Admin\CommentController@show')->name('admin_user_comment_path');
+	Route::patch('/users/{user_id}/comments/{id}', 'Admin\CommentController@update')->name('admin_user_comment_path');
+	Route::put('/users/{user_id}/comments/{id}', 'Admin\CommentController@update')->name('admin_user_comment_path');
+	Route::delete('/users/{user_id}/comments/{id}', 'Admin\CommentController@destroy')->name('admin_user_comment_path');
 }) ;

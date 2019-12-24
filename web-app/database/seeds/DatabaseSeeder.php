@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         # Create a main sample user.
-        DB::table('users')->insert([
+        User::create([
             'name' => "Example User",
             'email' => "example@railstutorial.org",
             'password' => Hash::make("foobar"),
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             $name  = $faker->name;
             $email = "example-$n@railstutorial.org";
             $password = Hash::make("password");
-            DB::table('users')->insert([
+            User::create([
                 'name' => $name,
                 'email' => $email,
                 'password' => $password,

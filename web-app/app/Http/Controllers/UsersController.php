@@ -86,7 +86,7 @@ class UsersController extends Controller
         $user->delete();
         // User::find($id)->delete();
 
-        return redirect()->route('users_path');
+        // return redirect()->route('users_path');
     }
 
     public function following($id)

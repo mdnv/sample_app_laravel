@@ -203,3 +203,8 @@ https://laravel.com/docs/6.x/testing
 https://mysterious-atoll-47182.herokuapp.com/
 
 php artisan passport:install
+
+https://stackoverflow.com/questions/31284774/laravel-classloader-php-error-failed-to-open-stream-no-such-file-or-directory
+composer dumpautoload
+
+php artisan route:clear

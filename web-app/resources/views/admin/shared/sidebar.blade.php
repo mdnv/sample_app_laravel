@@ -9,7 +9,7 @@
             <a class="nav-link" href="{{ route('admin_root_path') }}">{{ __('Admin') }}</a>
         </li>
         <li class="{{ is_active_controllers("UsersController") }}">
-            <a class="nav-link" href="{{ route('admin_root_path') }}">{{ __('User') }}</a>
+            <a class="nav-link" href="{{ route('admin_users_path') }}">{{ __('User') }}</a>
         </li>
         <li class="{{ is_active_controllers("ProductsController") }}">
             <a class="nav-link" href="{{ route('admin_root_path') }}">{{ __('Product') }}</a>
