@@ -181,6 +181,10 @@ INSERT INTO relationships (follower_id, followed_id) VALUES (2, 3);
 
 INSERT INTO relationships (follower_id, followed_id) VALUES (2, 1);
 
+https://laravel.com/docs/6.x/artisan
+sudo apt-get install php-gd php-xml php7.0-mbstring
+composer require laravel/tinker
+
 $tables = \DB::select('show tables');
 $columns = Schema::getColumnListing('users');
 
