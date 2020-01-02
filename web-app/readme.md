@@ -212,3 +212,7 @@ https://stackoverflow.com/questions/31284774/laravel-classloader-php-error-faile
 composer dumpautoload
 
 php artisan route:clear
+
+composer require laravel/passport
+composer require laravel/socialite
+composer require barryvdh/laravel-debugbar
