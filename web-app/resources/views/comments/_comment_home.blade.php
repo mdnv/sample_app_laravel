@@ -4,7 +4,9 @@
   <span class="user"><a href="{{ route('user_path',$comment->user)}}">{{ $comment->user->name }}</a></span>
   <span class="content">
     {{ $comment->body }}
-    {{-- <img src="https://mysterious-atoll-47182.herokuapp.com/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ef3e7475ea0ed48ce6b8ee444436696d74915996/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQXZRQmFRTDBBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--17d173499414a6796536cb2b2ba404cfe7ebd4b4/no_gravatar.gif" /> --}}
+    @if(!empty($comment->avatar))
+    <img src="/storage/avatars/{{ $comment->avatar }}" />
+    @endif
   </span>
   <span class="timestamp">
     {{-- Posted 29 days ago. --}}Posted {{ $comment->created_at->diffForHumans() }}

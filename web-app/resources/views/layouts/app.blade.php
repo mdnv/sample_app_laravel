@@ -52,6 +52,11 @@
 <body>
     @include('layouts.header')
     <div class="container">
+      @foreach (['danger', 'warning', 'success', 'info'] as $message_type)
+        @if ($message = Session::get($message_type))
+            <div class=<?php echo '"alert alert-'.$message_type.'"' ?>>{{ $message }}</div>
+        @endif
+      @endforeach
       @yield('content')
       @include('layouts.footer')
     </div>

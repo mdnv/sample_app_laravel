@@ -116,7 +116,7 @@
     @endif
   </div>
 
-  <a href="http://rubyonrails.org/"><img alt="Laravel logo" width="200px" src="{{ asset('images/laravel.png') }}" /></a>
+  <a href="http://rubyonrails.org/"><img alt="Laravel logo" width="200px" src="{{ asset('images/laravel.svg') }}" /></a>
 @else
 
 {{-- <div class="row">

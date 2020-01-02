@@ -7,7 +7,9 @@
   <span class="user"><a href="{{ route('user_path',$user->id)}}">{{ $comment->commenter }}</a></span>
   <span class="content">
     {{ $comment->body }}
-
+    @if(!empty($comment->avatar))
+    <img src="/storage/avatars/{{ $comment->avatar }}" />
+    @endif
   </span>
   <span class="timestamp">
     Posted about 5 hours ago.

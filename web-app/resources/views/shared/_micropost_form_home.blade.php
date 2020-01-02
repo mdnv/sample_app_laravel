@@ -1,6 +1,8 @@
 <form enctype="multipart/form-data" action="{{ route('user_comments_path',Auth::user()) }}" accept-charset="UTF-8" method="post">
   @csrf
 
+  @include('shared._error_messages')
+
   <div class="form-group">
     <input class="form-control" placeholder="Commenter..." name="commenter" id="comment_commenter" value="{{ Auth::user()->name }}" type="hidden">
   </div>
@@ -15,7 +17,7 @@
   </div>
 
   <div class="form-group">
-    <input accept="image/jpeg,image/gif,image/png" type="file" name="image" id="comment_image" />
+    <input accept="image/jpeg,image/gif,image/png" type="file" name="avatar" id="micropost_picture" />
   </div>
 </form>
 <script type="text/javascript">

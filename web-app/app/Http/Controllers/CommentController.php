@@ -20,8 +20,8 @@ class CommentController extends Controller
             'commenter'=>'required',
             'body'=>'required'
         ]);
-        // $user = User::find($id);
-        // $comment = $user->comments new Comment([
+        // $comment = User::find($id);
+        // $comment = $comment->comments new Comment([
         //     'commenter' => $request->get('commenter'),
         //     'body'=> $request->get('body'),
         //     'user_id'=> $id
@@ -31,35 +31,17 @@ class CommentController extends Controller
             'body'=> $request->get('body'),
             'user_id'=> $id
         ]);
-
-        // validate the uploaded file
-        $file = $request->file('image');
-        // $validation = $request->validate([
-        //     'image' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
-        //     // for multiple file uploads
-        //     // 'photo.*' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
-        // ]);
-
-        // $file      = $validation['image']; // get the validated file
-        // $extension = $file->getClientOriginalExtension();
-        // $filename  = 'comment-image-' . time() . '.' . $extension;
-        Storage::put('comments/1212', $file);
-
-        // $file = $request->file('image');
-        // // $extension = $file->getClientOriginalExtension();
-        // // $filename  = 'comment-image-' . $comment->id . time() . '.' . $extension;
-        // $filename  = 'comment-image-' . $comment->id . time();
-        // Storage::put($filename, $file);
-
+        if ($request->has('avatar'))
+        {
+            $request->validate([
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $avatarName = $comment->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('avatars',$avatarName);
+            $comment->avatar = $avatarName;
+        }
         $comment->save();
-
-
-
-
-
-
-        return redirect()->back();
-        // return redirect()->route('users_path,$user->id');
+        return redirect()->back()->with('success','Micropost created!');
     }
 
     /**
@@ -76,8 +58,8 @@ class CommentController extends Controller
         // redirect_to user_path(@user)
         $comment = Comment::find($id);
         $comment->delete();
-
-        return redirect()->back();
+        Storage::delete('avatars/'.$comment->avatar);
+        return redirect()->back()->with('danger','Micropost deleted');
         // return redirect()->route('users_path');
     }
 }

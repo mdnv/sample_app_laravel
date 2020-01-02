@@ -10656,3 +10656,7 @@ a.text-dark:focus {
     padding-top: 9px;
     font-weight: bold;
 }
+
+.navbar {
+  padding: 0 0 0 0;
+}

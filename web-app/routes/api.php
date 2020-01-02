@@ -38,5 +38,6 @@ use Illuminate\Http\Request;
  Route::post('getUser', 'AuthController@getUser');
  Route::get('users', 'UsersController@index');
  });
+ Route::get('users', 'UsersController@index');
 
 // Route::get('users', 'UsersController@index');
